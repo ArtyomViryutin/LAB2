@@ -127,16 +127,16 @@ void QuickSorting(Teachers *obj, int first, int last)
 	if (first < last) 
 	{
 		int left = first, right = last;
-		string middle = obj[(left + right) / 2].FIO; // Записываем в переменную middle центральный элемент массива
+		Teachers middle = obj[(left + right) / 2]; // Записываем в переменную middle центральный элемент массива
 		do // Цикл перемещения элементов, который больше центрального в одну часть массива и которые меньше в другую
 		{
-			while (middle > obj[left].FIO) left++; // Поиск индекса left элемента который будет больше чем центральный
-			while (obj[right].FIO > middle) right--; // Поиск индекса right элемента который будет меньше чем центральный
+			while (middle > obj[left]) left++; // Поиск индекса left элемента который будет больше чем центральный
+			while (obj[right] > middle) right--; // Поиск индекса right элемента который будет меньше чем центральный
 			if (left <= right) // При нахождении таких элементов элементов меняем их местами и переходим к следующим элементам
 			{
-				string temp = obj[left].FIO; // Временная переменная temp для обмена элементов
-				obj[left].FIO = obj[right].FIO;
-				obj[right].FIO = temp;
+				Teachers temp = obj[left]; // Временная переменная temp для обмена элементов
+				obj[left] = obj[right];
+				obj[right] = temp;
 				left++; // Увеличиваем индекс left на 1
 				right--; // Уменьшаем индекс right на 1
 			}
